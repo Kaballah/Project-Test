@@ -11,6 +11,30 @@ import pandas as pd
 import requests
 import plotly.express as px
 
+def check_dependencies():
+    dependencies = {
+        # 'folium': False,
+        'plotly': False,
+        'geopy': False
+    }
+    
+    # try:
+    #     # import folium
+    #     # from streamlit_folium import folium_static
+    #     # dependencies['folium'] = True
+    # except ImportError:
+    #     pass
+        
+    try:
+        import plotly.express as px
+        dependencies['plotly'] = True
+    except ImportError:
+        pass
+        
+    return dependencies
+
+deps = check_dependencies()
+
 # Title and description
 st.title("🌽 Taita Taveta Food Donation Network")
 st.subheader("Connecting Agricultural Surplus with Communities in Need")
